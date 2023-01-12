@@ -38,7 +38,7 @@ fn main() {
 
     // 美術館スタッフ
     let staff = std::thread::spawn(move || {
-        for n in 0..4 {
+        for n in 0..8 {
             // 展示内容入れ替え
             if n % 2 == 0 {
                 let mut guard = gallery.write().unwrap(); // ライトロック
@@ -51,7 +51,7 @@ fn main() {
                 guard.insert("葛飾北斎", "富嶽三十六景 神奈川沖浪裏");
                 guard.insert("ミュシャ", "黄道十二宮");
             }
-            sleep(Duration::from_secs(2));
+            sleep(Duration::from_secs(1));
         }
     });
 
