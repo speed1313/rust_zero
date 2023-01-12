@@ -1,7 +1,7 @@
 //! 実行すると5GB以上のメモリを消費するため注意すること。
 //! メモリが足りない場合は、NUMの値を減らしてください。
 
-const NUM: usize = 200000000; // 生成する乱数の合計数
+const NUM: usize = 5000000; // 生成する乱数の合計数
 
 /// xorshift
 struct XOR64 {
@@ -69,7 +69,7 @@ fn multi_threaded() {
     let (mut v1, mut v2) = randomized_vec();
 
     let start = std::time::Instant::now(); // 開始時間
-
+    
     // スレッドを生成してソート
     let handler1 = std::thread::spawn(move || {
         v1.sort();
