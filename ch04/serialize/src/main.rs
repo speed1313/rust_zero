@@ -78,5 +78,5 @@ fn read_from_file() {
 
     // YAMLからデシリアライズ
     let list = serde_yaml::from_str::<List<i32>>(&yml).unwrap();
-    println!("{:?}", list);
+    println!("from file: {:?}", list);
 }
