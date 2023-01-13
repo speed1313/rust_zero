@@ -19,6 +19,15 @@ impl<T> List<T> {
             next: Box::new(self),
         }
     }
+    fn set(self, data: T, num: i32) -> List<T>
+    where T: std::marker::Copy
+    {
+        let mut tmp =  List::Nil;
+        for _ in 0..num{
+            tmp = tmp.cons(data);
+        }
+        tmp
+    }
 
     /// 不変イテレータを返す
     fn iter<'a>(&'a self) -> ListIter<'a, T> {
@@ -49,9 +58,10 @@ impl<'a, T> Iterator for ListIter<'a, T> {
 fn main() {
     // [2, 1, 0]というリストを生成
     let list = List::new().cons(0).cons(1).cons(2);
+    // change list contents to 4 using pointetr
 
     // forで表示
-    for x in list.iter() {
+    for  mut x in list.iter() {
         println!("{x}");
     }
 
@@ -62,4 +72,13 @@ fn main() {
     println!("{:?}", it.next().unwrap());
     println!("{:?}", it.next().unwrap());
     println!("{:?}", it.next().unwrap());
+
+     println!();
+
+    let list = List::new().set(4, 3);
+    for  mut x in list.iter() {
+        println!("{x}");
+    }
+    println!("{}",list.iter().sum::<i32>());
+
 }
