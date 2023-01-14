@@ -11,7 +11,7 @@ impl SafeAdd for usize {
 pub fn safe_add<T, F, E>(dst: &mut T, src: &T, f: F) -> Result<(), E>
 where
     T: SafeAdd,
-    F: Fn() -> E,
+    F: Fn() -> E, // 遅延評価. Eではなくclosureを返すことでエラー発生の時だけエラーを生成するようにできる.
 {
     if let Some(n) = dst.safe_add(src) {
         *dst = n;
