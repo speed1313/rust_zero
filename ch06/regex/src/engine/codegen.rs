@@ -110,6 +110,7 @@ impl Generator {
 
         // L2の値を設定
         self.inc_pc()?;
+        // instsからsplit_addr番目の命令を取り出して、L2の値を設定する
         if let Some(Instruction::Split(_, l2)) = self.insts.get_mut(split_addr) {
             *l2 = self.pc;
         } else {
