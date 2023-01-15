@@ -7,6 +7,7 @@ use std::{
     fs::File,
     io::{BufRead, BufReader},
 };
+// e.g. `cargo run "main|(lt)" main.rs`
 
 fn main() -> Result<(), DynError> {
     let args: Vec<String> = env::args().collect();

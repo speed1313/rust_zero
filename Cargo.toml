@@ -17,6 +17,7 @@ members = [
     "ch08/zdbg",
     "ch09/parser",
     "ch09/linz",
+    "ch09/poland",
 ]
 
 exclude = ["ch07/zrsh"]
